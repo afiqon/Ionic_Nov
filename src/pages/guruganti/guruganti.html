@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <strong>Guru Ganti</strong>
+    </ion-title>
+    </ion-navbar>
+    </ion-header>
+
+
+    <ion-content padding>
+
+        <ion-list>
+            <ion-item>
+              <ion-label>Pilih Pengajar</ion-label>
+              <ion-select [(ngModel)]="data" >
+                <div *ngFor="let teacher of pengajar">
+                    <ion-option value="{{teacher.id_pengajar}}">{{teacher.nama_pengajar}}</ion-option>
+                </div>
+                
+              </ion-select>
+            </ion-item>
+          </ion-list> 
+      </ion-content>

@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+      <ion-title>Kehadiran</ion-title>
+    </button>
+  </ion-navbar>
+</ion-header>
+    
+    <ion-content padding>
+    
+            <div class="bg">
+          </div>
+      
+          <ion-list>
+            <ion-item>
+              <ion-label>Hari</ion-label>
+              <ion-select [(ngModel)]="hari">
+                <ion-option value="Monday">Isnin</ion-option>
+                <ion-option value="Tuesday">Selasa</ion-option>
+                <ion-option value="Wednesday">Rabu</ion-option>
+                <ion-option value="Thursday">Khamis</ion-option>
+                <ion-option value="Friday">Jumaat</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+
+         
+
+          
+          <ion-list>
+            <ion-item>
+              <ion-label>Sesi Kemasukan</ion-label>
+              <ion-select (ionChange)="setSession(data)" [(ngModel)]="data" >
+                <div *ngFor="let session of sessions">
+                    <ion-option value="{{session.ids}}">{{session.sesi}}</ion-option>
+                </div>
+                
+              </ion-select>
+            </ion-item>
+          </ion-list> 
+
+    
+      <ion-list>
+      <ion-item *ngIf="classes">
+        <ion-label>Kelas</ion-label>
+        <ion-select (ionChange)="setClass(Kelas)" [(ngModel)]="Kelas">
+          <div *ngFor="let class of classes">
+            <ion-option value="{{class.kelas}}">{{class.kelas}}</ion-option>
+          </div>
+        </ion-select>
+      </ion-item>
+      </ion-list>
+    
+      <ion-list>
+        <ion-item *ngIf="days">
+          <ion-label>Hari</ion-label>
+          <ion-select (ionChange)="setDay(Hari)"  [(ngModel)]="Hari">
+            <div *ngFor="let day of days">
+              <ion-option value="{{day.hari}}">{{day.hari}}</ion-option>
+            </div>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    
+      <ion-list>
+        <ion-item>
+          <ion-label>Slot</ion-label>
+          <ion-select (ionChange)="setSlot(Slot)" [(ngModel)]="Slot">
+            <div *ngFor="let slot of slots">
+              <ion-option value="{{slot.slot}}">{{slot.slot}}</ion-option>
+            </div>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    
+    
+      <ion-item>
+        <ion-label>Date</ion-label>
+        <ion-datetime (ionChange)="setDate(myDate)"  displayFormat="YYYY/MM/DD" [(ngModel)]="myDate"></ion-datetime>
+          <!-- <ion-datetime displayFormat="HH/MM/AA" [(ngModel)]="myDate"></ion-datetime> -->
+       
+      </ion-item>
+    
+      <div *ngFor="let student of students">
+        <ion-item> 
+            <ion-label>{{student.nama_pelajar}}</ion-label>
+            <ion-toggle (click)="selectMember(student)" [(ngModel)]="student.checked"></ion-toggle> 
+        </ion-item>
+      </div> 
+        <!-- <ion-item>
+            <ion-label>Ikhmal</ion-label>
+            <ion-checkbox color="dark" checked="true"></ion-checkbox>
+          </ion-item>
+    
+          <ion-item>
+              <ion-label>Syafiqah</ion-label>
+              <ion-checkbox color="dark" checked="true"></ion-checkbox>
+            </ion-item> -->
+    
+  
+        <button ion-button color="secondary" round (click)="submitAttendance()">Hantar</button>
+       
+    </ion-content>

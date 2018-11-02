@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+      <ion-title>Pelajar</ion-title>
+    </button>
+    </ion-navbar>
+    </ion-header>
+
+<ion-content padding>
+  <div *ngFor= "let jadual of jaduals"> </div>
+
+  <h2>Pelajar</h2>
+
+  <table>
+    <tr>
+      <th>Nama</th>
+      <th>No NDP</th>
+    </tr>
+    <tr *ngFor="let pelajar of jaduals">
+      <td>{{pelajar.nama_pelajar}}</td>
+      <td>{{pelajar.no_ndp}}</td>
+    </tr>
+    
+  </table>
+  
+  </ion-content>
+      ';
+

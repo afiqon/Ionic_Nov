@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-navbar color="primary">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+        <ion-title>Jadual</ion-title>
+      </button>
+      </ion-navbar>
+      </ion-header>
+
+      <ion-content padding>
+
+        <ion-list>
+            <ion-item>
+              <ion-label>Sesi</ion-label>
+              <ion-select [(ngModel)]="data" >
+                <div *ngFor="let timetable of jadual">
+                    <ion-option value="{{timetable.idj}}">{{timetable.sesi}}</ion-option>
+                </div>
+                
+              </ion-select>
+            </ion-item>
+          </ion-list> 
+      </ion-content>
